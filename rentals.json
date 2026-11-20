@@ -1,0 +1,4 @@
+{
+  "_how_to_use": "One entry per rental video. status: available shows it on /videos/; status: rented hides it (kept here so it can be brought back). youtube = the video ID or full YouTube link.",
+  "rentals": []
+}

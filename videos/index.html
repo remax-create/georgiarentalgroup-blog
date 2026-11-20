@@ -135,6 +135,17 @@ Object.keys(PLAYLISTS).forEach(function(k){
   var g=document.getElementById("g-"+k);
   g.outerHTML='<div class="pwrap"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/videoseries?list='+encodeURIComponent(id)+'&rel=0" title="Georgia Rental Group videos" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe><a class="more" href="https://www.youtube.com/playlist?list='+encodeURIComponent(id)+'" target="_blank" rel="noopener">See every video in this list on YouTube &rarr;</a></div>';
 });
+
+// Homes for rent: driven by /rentals.json (status "available" shows, "rented" hides but is kept to bring back later)
+function ytId(s){s=String(s||"");var m=s.match(/(?:shorts\/|v=|youtu\.be\/|embed\/)([A-Za-z0-9_-]{11})/);return m?m[1]:(/^[A-Za-z0-9_-]{11}$/.test(s)?s:"")}
+fetch("/rentals.json",{cache:"no-store"}).then(function(r){return r.json()}).then(function(d){
+  var live=(d.rentals||[]).filter(function(x){return String(x.status).toLowerCase()==="available"&&ytId(x.youtube)});
+  if(!live.length) return;
+  document.getElementById("g-rentals").innerHTML=live.map(function(x){var id=ytId(x.youtube);
+    var info=[x.city,x.beds?x.beds+" bd":"",x.baths?x.baths+" ba":"",x.rent?"$"+Number(x.rent).toLocaleString()+"/mo":""].filter(Boolean).join(" · ");
+    return '<div class="card vcard" tabindex="0" data-v="'+esc(id)+'"'+(x.short?' data-short="1"':'')+'><div class="th"><img loading="lazy" src="https://i.ytimg.com/vi/'+esc(id)+'/hqdefault.jpg" alt="'+esc(x.address||"Home for rent")+'"><span class="pl"></span></div><div class="tx"><span class="meta">'+esc(info)+'</span><h3>'+esc(x.address||"Home for rent")+'</h3><p>'+esc(x.blurb||"Take the video tour, then book your own self-tour on our rentals page.")+'</p></div></div>';
+  }).join("");
+}).catch(function(){});
 var m=document.getElementById("m"),mb=document.getElementById("mb");
 function openV(id,sh){mb.classList.toggle("vert",!!sh);mb.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0" title="Video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';m.classList.add("open")}
 document.addEventListener("click",function(e){var c=e.target.closest("[data-v]");if(c)openV(c.dataset.v,c.dataset.short)});

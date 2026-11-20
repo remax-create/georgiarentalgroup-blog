@@ -22,6 +22,17 @@
       "short": true,
       "status": "available",
       "blurb": "Take the video tour, then book your own self-tour on our rentals page."
+    },
+    {
+      "address": "341 W Griffin St Unit D",
+      "city": "Dallas",
+      "beds": 1,
+      "baths": 1,
+      "rent": 875,
+      "youtube": "g3kd6H_c7SI",
+      "short": true,
+      "status": "available",
+      "blurb": "Take the video tour, then book your own self-tour on our rentals page."
     }
   ]
 }

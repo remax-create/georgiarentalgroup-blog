@@ -33,6 +33,17 @@
       "short": true,
       "status": "available",
       "blurb": "Take the video tour, then book your own self-tour on our rentals page."
+    },
+    {
+      "address": "2225 Charleston Pointe SE",
+      "city": "Atlanta",
+      "beds": 3,
+      "baths": 3,
+      "rent": 3000,
+      "youtube": "1eb4jpfU6JU",
+      "short": true,
+      "status": "available",
+      "blurb": "Take the video tour, then book your own self-tour on our rentals page."
     }
   ]
 }

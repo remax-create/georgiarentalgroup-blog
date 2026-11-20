@@ -2,6 +2,17 @@
   "_how_to_use": "One entry per rental video. status: available shows it on /videos/; status: rented hides it (kept here so it can be brought back). youtube = the video ID or full YouTube link.",
   "rentals": [
     {
+      "address": "803 Rocky Ridge Ct",
+      "city": "Canton",
+      "beds": 6,
+      "baths": 5,
+      "rent": 4495,
+      "youtube": "T5Q0KukUkyk",
+      "short": true,
+      "status": "available",
+      "blurb": "Multigenerational living with room for everybody. Take the video tour, then book your own self-tour."
+    },
+    {
       "address": "9950 Autry Vue Ln",
       "city": "Johns Creek",
       "beds": 4,

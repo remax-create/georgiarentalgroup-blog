@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 360" width="1240" height="360">
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.6" stop-color="#e9eff6"/>
+      <stop offset="1" stop-color="#c3d0de"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.5" stop-color="#aebccb"/>
+      <stop offset="1" stop-color="#7f93a8"/>
+    </linearGradient>
+    <linearGradient id="tilegloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5db6f2"/>
+      <stop offset="0.38" stop-color="#0a70b8"/>
+      <stop offset="0.52" stop-color="#065a98"/>
+      <stop offset="1" stop-color="#083f70"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe2a0"/>
+      <stop offset="0.3" stop-color="#ffb02e"/>
+      <stop offset="0.52" stop-color="#f58a00"/>
+      <stop offset="1" stop-color="#d86a00"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.5" stop-color="#e6edf7"/>
+      <stop offset="1" stop-color="#b9c8dc"/>
+    </linearGradient>
+
+    <filter id="gloss3d" x="-15%" y="-15%" width="130%" height="130%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2.6" result="blur"/>
+      <feSpecularLighting in="blur" surfaceScale="5" specularConstant="1.1" specularExponent="26" lighting-color="#ffffff" result="spec">
+        <fePointLight x="180" y="-120" z="260"/>
+      </feSpecularLighting>
+      <feComposite in="spec" in2="SourceAlpha" operator="in" result="specIn"/>
+      <feDiffuseLighting in="blur" surfaceScale="4" diffuseConstant="1" lighting-color="#ffffff" result="diff">
+        <feDistantLight azimuth="235" elevation="55"/>
+      </feDiffuseLighting>
+      <feComposite in="SourceGraphic" in2="diff" operator="arithmetic" k1="1.05" k2="0" k3="0" k4="0" result="shaded"/>
+      <feComposite in="shaded" in2="specIn" operator="arithmetic" k1="0" k2="1" k3="0.9" k4="0" result="lit"/>
+      <feComposite in="lit" in2="SourceAlpha" operator="in" result="litClip"/>
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="sh"/>
+      <feOffset in="sh" dx="0" dy="9" result="shOff"/>
+      <feFlood flood-color="#10263d" flood-opacity="0.45"/>
+      <feComposite in2="shOff" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="litClip"/></feMerge>
+    </filter>
+    <filter id="tileShadow" x="-15%" y="-15%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="22" stdDeviation="20" flood-color="#0b1d30" flood-opacity="0.5"/>
+    </filter>
+    <clipPath id="tileclip"><rect x="70" y="60" width="860" height="860" rx="170"/></clipPath>
+  </defs>
+
+
+  <!-- icon, original coordinate space scaled -->
+  <g transform="translate(30 30) scale(1)" stroke-linejoin="miter" stroke-linecap="butt">
+
+    <!-- leaf -->
+    <g filter="url(#gloss3d)">
+      <path d="M408,6 C362,24 330,78 338,140 C345,214 380,264 408,292 C452,256 480,186 472,112 C467,56 442,18 408,6 Z"
+            fill="url(#leaf)" stroke="url(#blue)" stroke-width="13" stroke-linejoin="round"/>
+    </g>
+
+    <!-- tree -->
+    <g filter="url(#gloss3d)" fill="url(#blue)" stroke="none">
+      <rect x="402.5" y="62" width="10" height="228" rx="4"/>
+    </g>
+    <g filter="url(#gloss3d)" fill="none" stroke="#0a68ad" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M407,108 L389,86 M407,108 L425,86 M407,156 L386,132 M407,156 L428,132 M407,206 L386,182 M407,206 L428,182"/>
+    </g>
+
+    <!-- white interiors for buildings -->
+    <g fill="#ffffff" stroke="none">
+      <path d="M7,298 L7,190 L77,152 L77,298 Z"/>
+      <path d="M85,298 L85,122 L208,46 L208,266 L200,266 L200,298 Z"/>
+    </g>
+
+    <!-- buildings -->
+    <g filter="url(#gloss3d)" fill="none" stroke="url(#blue)" stroke-width="15">
+      <path d="M7,298 L7,190 L77,152 L77,298"/>
+      <path d="M85,298 L85,122 L208,46 L208,266"/>
+      <rect x="0" y="290.5" width="250" height="15" fill="url(#blue)" stroke="none"/>
+    </g>
+
+    <!-- house in front of leaf and tree: full right wall -->
+    <path d="M242,298 L242,190 L320,116 L398,190 L398,298 Z" fill="#ffffff" stroke="none"/>
+    <g filter="url(#gloss3d)" stroke="url(#blue)" stroke-width="15" fill="none">
+      <path d="M242,298 L242,190 L320,116 L398,190 L398,298 Z"/>
+    </g>
+
+    <!-- windows -->
+    <g filter="url(#gloss3d)" fill="url(#blue)" stroke="none">
+      <rect x="37" y="196" width="20" height="20" rx="2"/>
+      <rect x="37" y="238" width="20" height="20" rx="2"/>
+      <rect x="153" y="112" width="20" height="20" rx="2"/>
+      <rect x="110" y="150" width="20" height="20" rx="2"/>
+      <rect x="110" y="192" width="20" height="20" rx="2"/>
+      <rect x="153" y="192" width="20" height="20" rx="2"/>
+      <rect x="153" y="235" width="20" height="20" rx="2"/>
+      <rect x="110" y="235" width="20" height="20" rx="2"/>
+    </g>
+    <g filter="url(#gloss3d)">
+      <rect x="301" y="186" width="36" height="36" rx="2" fill="none" stroke="url(#blue)" stroke-width="7"/>
+      <path d="M319,186 L319,222 M301,204 L337,204" stroke="url(#blue)" stroke-width="5" fill="none"/>
+    </g>
+  </g>
+
+  <!-- wordmark, horizontal layout -->
+  <g font-family="Montserrat, 'Arial Black', Helvetica, Arial, sans-serif" font-weight="900" text-anchor="start">
+    <g filter="url(#gloss3d)">
+      <text transform="translate(545 178) scale(0.845 1)" font-size="165" fill="url(#orange)">GEORGIA</text>
+    </g>
+    <g filter="url(#gloss3d)">
+      <text transform="translate(548 300) scale(0.855 1)" font-size="98" fill="url(#blue)" font-weight="800">RENTAL GROUP</text>
+    </g>
+  </g>
+</svg>

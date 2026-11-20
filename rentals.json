@@ -1,4 +1,16 @@
 {
   "_how_to_use": "One entry per rental video. status: available shows it on /videos/; status: rented hides it (kept here so it can be brought back). youtube = the video ID or full YouTube link.",
-  "rentals": []
+  "rentals": [
+    {
+      "address": "9950 Autry Vue Ln",
+      "city": "Johns Creek",
+      "beds": 4,
+      "baths": 2.5,
+      "rent": 3295,
+      "youtube": "26Undge4mHQ",
+      "short": true,
+      "status": "available",
+      "blurb": "Take the video tour, then book your own self-tour on our rentals page."
+    }
+  ]
 }

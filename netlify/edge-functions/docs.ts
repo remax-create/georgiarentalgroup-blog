@@ -13,16 +13,20 @@ const DOCS: Record<string, { id: number; file: string }> = {
 export default async (req: Request) => {
   const url = new URL(req.url);
   const slug = url.pathname.replace(/^\/docs\//, "").replace(/\.pdf$/i, "").replace(/\/$/, "");
-  const doc = DOCS[slug];
+  // Any other public Buildium file: /docs/file/<fileId>.pdf (used by cards the site adds automatically)
+  const m = slug.match(/^file\/(\d{4,10})$/);
+  const doc = DOCS[slug] || (m ? { id: Number(m[1]), file: `Georgia-Rental-Group-${m[1]}.pdf` } : undefined);
   if (!doc) return new Response("Document not found", { status: 404 });
   const src = await fetch(
     `https://georgiarentalgroup2.managebuilding.com/Resident/api/public/files/download?fileId=${doc.id}`,
   );
   if (!src.ok || !src.body) return new Response("Document is temporarily unavailable", { status: 502 });
   const dl = url.searchParams.has("download");
+  const type = src.headers.get("content-type") || "application/pdf";
+  if (m && !/pdf/i.test(type)) return new Response("Not a PDF", { status: 404 });
   return new Response(src.body, {
     headers: {
-      "content-type": "application/pdf",
+      "content-type": type,
       "content-disposition": `${dl ? "attachment" : "inline"}; filename="${doc.file}"`,
       "cache-control": "public, max-age=300",
       "netlify-cdn-cache-control": "public, s-maxage=3600, stale-while-revalidate=86400",

@@ -1,0 +1,154 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><style>
+:root { --navy: #0d2847; --blue: #006298; --orange: #ff993b; --ink: #1f2d3d; --muted: #5b6b7c; --bg: #f5f7fa; --line: #e3e9f0; }
+* { box-sizing: border-box; }
+html { text-size-adjust: 100%; }
+body { margin: 0px; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.65; font-size: 17px; }
+a { color: var(--blue); }
+.bar { background: var(--navy); color: #fff; font-size: 14px; }
+.bar .in { max-width: 1100px; margin: 0px auto; padding: 8px 16px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: center; }
+.bar a { color: #fff; text-decoration: none; font-weight: 600; }
+.bar .call { background: var(--orange); padding: 5px 14px; border-radius: 999px; }
+header { background: #fff; border-bottom: 1px solid var(--line); }
+header .in { max-width: 1100px; margin: 0px auto; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+header img { height: 58px; display: block; }
+nav { display: flex; gap: 4px; flex-wrap: wrap; }
+nav a { font: 700 14px Montserrat, sans-serif; letter-spacing: 0.04em; text-transform: uppercase; color: var(--navy); text-decoration: none; padding: 8px 10px; border-radius: 8px; }
+nav a.on { background: #fff4e8; color: #c96a12; }
+.wrap { max-width: 1100px; margin: 0px auto; padding: 0px 16px; }
+.eyebrow { font: 800 13px Montserrat, sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); }
+h1, h2, h3 { font-family: Montserrat, sans-serif; color: var(--navy); line-height: 1.2; }
+.meta { font-size: 14px; color: var(--muted); }
+article { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 40px clamp(18px, 5vw, 56px); margin: 24px auto 30px; max-width: 820px; }
+article h1 { font-size: clamp(28px, 4.5vw, 40px); margin: 8px 0px; font-weight: 900; }
+article h2 { font-size: 23px; margin: 34px 0px 8px; }
+article li { margin: 6px 0px; }
+.box { background: #fff8f0; border-left: 5px solid var(--orange); border-radius: 12px; padding: 16px 22px; margin: 22px 0px; }
+.box p { margin: 6px 0px; }
+.byline { display: flex; align-items: center; gap: 12px; margin: 16px 0px 26px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+.byline b { display: block; color: var(--navy); }
+.cta { background: linear-gradient(135deg, #ff993b, #f07f16); color: #fff; border-radius: 18px; padding: 26px 28px; margin: 34px 0px 6px; }
+.cta h2 { color: #fff; margin: 0px 0px 6px; }
+.cta p { margin: 0px 0px 16px; }
+.btn { display: inline-block; font: 800 15px Montserrat, sans-serif; text-decoration: none; padding: 12px 22px; border-radius: 12px; margin: 4px 8px 4px 0px; }
+.btn.w { background: #fff; color: var(--navy); }
+.btn.g { border: 2px solid rgba(255,255,255,0.7); color: #fff; }
+.back { display: inline-block; margin-top: 22px; font-weight: 700; text-decoration: none; }
+footer { background: var(--navy); color: #cfe0ee; margin-top: 30px; }
+footer .in { max-width: 1100px; margin: 0px auto; padding: 34px 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px; font-size: 15px; }
+footer b { display: block; font: 800 13px Montserrat, sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); margin-bottom: 8px; }
+footer a { color: #fff; text-decoration: none; display: block; margin: 4px 0px; }
+.copy { text-align: center; font-size: 13px; color: #9fb4c8; padding: 0px 16px 24px; }
+.hero-img { width: 100%; height: auto; border-radius: 16px; display: block; margin: 6px 0px 4px; aspect-ratio: 16 / 9; object-fit: cover; }
+.chart { margin: 24px 0px; background: #f8fafc; border: 1px solid var(--line); border-radius: 14px; padding: 18px 18px 10px; }
+.chart figcaption { font: 800 16px Montserrat, sans-serif; color: var(--navy); margin-bottom: 10px; }
+.chart svg { width: 100%; height: auto; display: block; }
+.chart .lab { font: 600 14px Inter, sans-serif; fill: #1f2d3d; }
+.chart .val { font: 800 17px Montserrat, sans-serif; fill: #0d2847; }
+.faq h3 { font-size: 18px; margin: 18px 0px 4px; }
+.faq p { margin: 0px 0px 8px; }
+.author { display: flex; gap: 14px; align-items: center; background: #f3f6f9; border-radius: 14px; padding: 14px 16px; margin-top: 26px; }
+.author img { width: 64px; height: 64px; border-radius: 14px; object-fit: cover; border: 2px solid var(--orange); }
+.author p { margin: 2px 0px 0px; font-size: 15px; color: var(--muted); }
+@media (max-width: 600px) { header img { height: 46px; } nav a { padding: 6px 7px; font-size: 12.5px; } }
+.share { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 18px 0px 6px; }
+.share span { font: 800 13px Montserrat, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
+.share a, .share button { font: 700 14px Inter, sans-serif; border: 1px solid var(--line); background: #fff; color: var(--navy); padding: 8px 14px; border-radius: 999px; text-decoration: none; cursor: pointer; }
+.share a:hover, .share button:hover { border-color: var(--orange); color: #c96a12; }
+</style><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Atlanta House Rents Up 5% While Apartment Rents Slip | Georgia Rental Group</title>
+<meta name="description" content="Atlanta house rents are up 5% from last year while 2-bedroom apartment rents slipped. What it means for rental owners in Cherokee, Cobb and North Fulton.">
+<link rel="canonical" href="https://blog.georgiarentalgroup.com/atlanta-house-rents-up-apartments-slip/">
+<meta property="og:title" content="Atlanta House Rents Up 5% While Apartment Rents Slip | Georgia Rental Group"><meta property="og:description" content="Atlanta house rents are up 5% from last year while 2-bedroom apartment rents slipped. What it means for rental owners in Cherokee, Cobb and North Fulton."><meta property="og:url" content="https://blog.georgiarentalgroup.com/atlanta-house-rents-up-apartments-slip/"><meta property="og:type" content="website"><meta property="og:image" content="https://blog.georgiarentalgroup.com/img/atlanta-house-rents.jpg">
+<meta property="og:image:secure_url" content="https://blog.georgiarentalgroup.com/img/atlanta-house-rents.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta property="og:image:alt" content="Atlanta house rents up 5% while apartment rents slip, with Sandra Watkins of Georgia Rental Group">
+<meta name="twitter:image" content="https://blog.georgiarentalgroup.com/img/atlanta-house-rents.jpg"><meta name="twitter:card" content="summary_large_image"><meta property="og:site_name" content="Georgia Rental Group">
+<link rel="alternate" type="application/rss+xml" title="Georgia Rental Group Blog" href="https://blog.georgiarentalgroup.com/feed.xml"><link rel="icon" href="https://blog.georgiarentalgroup.com/logo.svg"><link rel="preconnect" href="https://fonts.googleapis.com/"><link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Atlanta House Rents Up 5% While Apartments Slip", "description": "Atlanta house rents are up 5% from last year while 2-bedroom apartment rents slipped. What it means for rental owners in Cherokee, Cobb and North Fulton.", "image": "https://blog.georgiarentalgroup.com/img/atlanta-house-rents.jpg", "datePublished": "2026-11-27", "dateModified": "2026-11-27", "author": {"@type": "Person", "name": "Sandra Watkins", "jobTitle": "Broker/Owner"}, "publisher": {"@type": "Organization", "name": "Georgia Rental Group", "logo": {"@type": "ImageObject", "url": "https://blog.georgiarentalgroup.com/logo.png"}}, "mainEntityOfPage": "https://blog.georgiarentalgroup.com/atlanta-house-rents-up-apartments-slip/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are rents going up or down in Atlanta?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the type of rental. In Zumper's November 2026 City of Atlanta numbers, houses averaged about $2,400, up 5% from a year ago, while 2-bedroom rentals averaged about $2,002, down 2%."}}, {"@type": "Question", "name": "Why are house rents holding up better than apartments?", "acceptedAnswer": {"@type": "Answer", "text": "Metro Atlanta has added a lot of new apartments, and those buildings compete hard for renters. Single-family homes have less new competition, and many renters want a yard, a garage and more space."}}, {"@type": "Question", "name": "How should I price my rental house right now?", "acceptedAnswer": {"@type": "Answer", "text": "Start with like-kind homes near yours that actually leased in the last few months, then adjust for condition and features. Active listings show your competition, not what renters are paying."}}]}</script>
+<script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"7e4922e6150e6b35f8cdf974e4d48cec"})});</script></head><body>
+<div class="bar"><div class="in"><span>Broker-owned property management in Canton, GA since 1998</span><span style="display:inline-flex;gap:8px;flex-wrap:wrap"><a class="call" href="sms:+17703243680">Click to Text</a><a class="call" href="tel:+17703243680">Click to Call</a></span></div></div>
+<header><div class="in"><a href="https://georgiarentalgroup2.managebuilding.com/Resident/public/home"><img src="https://blog.georgiarentalgroup.com/logo.png" alt="Georgia Rental Group" width="513" height="140" style="width:auto"></a><nav><a href="https://georgiarentalgroup2.managebuilding.com/Resident/public/home">Home</a><a href="https://u10777.rently.com/propertiesSearch2" target="_blank" rel="noopener">Rentals</a><a href="https://georgiarentalgroup2.managebuilding.com/Resident/public/custom/22">Owners</a><a href="https://georgiarentalgroup2.managebuilding.com/Resident/public/custom/20">About</a><a href="https://blog.georgiarentalgroup.com/" class="on">Blog</a><a href="/videos/">Video Q&amp;A</a><a href="/rental-tours/">Rental Tours</a><a href="https://georgiarentalgroup2.managebuilding.com/Resident/public/contact">Contact</a></nav></div></header>
+<main class="wrap"><article>
+<span class="eyebrow">Georgia Rental Group Blog</span>
+<h1>Atlanta House Rents Up 5% While Apartments Slip</h1>
+<div class="byline">
+<div>
+<b>Sandra Watkins, Broker/Owner</b>
+<span class="meta">November 27, 2026</span>
+</div>
+</div>
+<img class="hero-img" src="https://blog.georgiarentalgroup.com/img/atlanta-house-rents.jpg" alt="Atlanta house rents up 5% while apartment rents slip, with Sandra Watkins of Georgia Rental Group" width="1600" height="900">
+<div class="share" aria-label="Share this post"><span>Share</span>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https://blog.georgiarentalgroup.com/atlanta-house-rents-up-apartments-slip/" target="_blank" rel="noopener">Facebook</a>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://blog.georgiarentalgroup.com/atlanta-house-rents-up-apartments-slip/" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://twitter.com/intent/tweet?url=https://blog.georgiarentalgroup.com/atlanta-house-rents-up-apartments-slip/&amp;text=Atlanta%20house%20rents%20up%205%25%20while%20apartments%20slip" target="_blank" rel="noopener">X</a>
+<a href="mailto:?subject=Atlanta%20house%20rents%20up%205%25%20while%20apartments%20slip&amp;body=https://blog.georgiarentalgroup.com/atlanta-house-rents-up-apartments-slip/">Email</a>
+<button type="button" onclick="navigator.clipboard&&navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button>
+</div>
+<p>If you own a rental house in metro Atlanta, here's some good news to go with your Thanksgiving leftovers. The newest rent numbers show houses are holding their value with renters, even while apartment rents slide. But there's a catch, and it's all about pricing.</p>
+<div class="box"><p><b>The short version:</b> Zumper's City of Atlanta numbers, updated November 26, show the average house renting for about $2,400, up 5% from a year ago. Two-bedroom rentals are down 2%. Houses are winning, but only when they're priced on what homes actually leased for, not on hope.</p></div>
+
+<h2>The new numbers</h2>
+<p>Zumper tracks the rentals listed on its site over a rolling 30 days. Here's what the City of Atlanta looked like as of this week:</p>
+<p><img src="/img/atlanta-rent-chart.jpg" alt="City of Atlanta rents, November 2026: houses $2,400 up 5%, 3 bedroom $2,300 up 3%, 2 bedroom $2,002 down 2% from last year" loading="lazy" width="1200" height="630"></p>
+<ul>
+<li>Houses: about $2,400 a month, up 5% from last year</li>
+<li>3-bedroom rentals: about $2,300, up 3%</li>
+<li>2-bedroom rentals: about $2,002, down 2%</li>
+</ul>
+<p>One honest note: these are City of Atlanta numbers, not Canton or Woodstock. Rent for your home depends on your street, your school zone and your home. I use numbers like these to see which way the wind is blowing, not to set your rent.</p>
+
+<h2>Why houses are holding up better</h2>
+<p>Metro Atlanta has built a lot of apartments. In its January 2026 report, Yardi Matrix said developers delivered 16,086 new apartment units in 2025 through November, with another 24,071 under construction at the time. All those new buildings are competing for renters with move-in specials and lower prices.</p>
+<p>Single-family rentals don't have that kind of new competition. And a lot of renters still want what an apartment can't give them: a yard, a garage, a little more space, and no neighbor on the other side of the bedroom wall. That's a big reason house rents have kept climbing while apartment rents slipped.</p>
+
+<h2>Why the apartment glut still matters to you</h2>
+<p>Here's the catch. Even if your tenant would never live in an apartment, they're comparing. A renter looking at your three-bedroom house is also looking at a brand-new two-bedroom with a pool, a gym and a move-in special. If your house is priced too far above that, they'll ask themselves whether the yard is worth it.</p>
+<p>That's why houses that are clean, updated and priced right are leasing, and houses priced on last spring's hopes are sitting. December and January are slow months for renting, so a home that sits now can sit a while.</p>
+
+<h2>How we price a rental house</h2>
+<p>When we price a home, whether it's a new listing or a renewal, here's what we do:</p>
+<ul>
+<li>We start with like-kind homes near yours that actually leased in the last few months: similar size, bedrooms, condition and features.</li>
+<li>We use active listings to see the competition, not to decide what renters will pay. An asking price isn't a lease.</li>
+<li>We adjust for what makes your home stand out or hold it back: garage, fenced yard, updates, school zone.</li>
+<li>We set a check-in point. If a home has no applications after about two weeks, we look at the price again with you, so it doesn't sit for months.</li>
+</ul>
+<p>For a renewal, we also weigh the cost of a turnover. Keeping a good tenant at a fair rent usually beats chasing the top of the market. I broke that math down in <a href="/keep-good-tenants-lease-renewal/">Georgia Tenants Are Staying Longer: Why Renewals Pay</a>.</p>
+
+<h2>Quick answers</h2>
+<p><b>Are rents going up or down in Atlanta?</b><br>It depends on the type of rental. In Zumper's November 2026 City of Atlanta numbers, houses averaged about $2,400, up 5% from a year ago, while 2-bedroom rentals averaged about $2,002, down 2%.</p>
+<p><b>Why are house rents holding up better than apartments?</b><br>Metro Atlanta has added a lot of new apartments, and those buildings compete hard for renters. Single-family homes have less new competition, and many renters want a yard, a garage and more space.</p>
+<p><b>How should I price my rental house right now?</b><br>Start with like-kind homes near yours that actually leased in the last few months, then adjust for condition and features. Active listings show your competition, not what renters are paying.</p>
+
+<h2>Want to know what your rental house should lease for?</h2>
+<p>I'm happy to run the numbers on your home, whether we manage it or not. Call or text me at <a href="tel:7703243680">770-324-3680</a>, or see <a href="https://owners.georgiarentalgroup.com" target="_blank" rel="noopener">how we help owners</a>.</p>
+
+<div class="share" aria-label="Share this post"><span>Share</span>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https://blog.georgiarentalgroup.com/atlanta-house-rents-up-apartments-slip/" target="_blank" rel="noopener">Facebook</a>
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://blog.georgiarentalgroup.com/atlanta-house-rents-up-apartments-slip/" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://twitter.com/intent/tweet?url=https://blog.georgiarentalgroup.com/atlanta-house-rents-up-apartments-slip/&amp;text=Atlanta%20house%20rents%20up%205%25%20while%20apartments%20slip" target="_blank" rel="noopener">X</a>
+<a href="mailto:?subject=Atlanta%20house%20rents%20up%205%25%20while%20apartments%20slip&amp;body=https://blog.georgiarentalgroup.com/atlanta-house-rents-up-apartments-slip/">Email</a>
+<button type="button" onclick="navigator.clipboard&&navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button>
+</div>
+<p class="meta" style="margin-top:22px"><b>Sources:</b> <a href="https://www.zumper.com/rent-research/atlanta-ga" target="_blank" rel="noopener">Zumper, Atlanta, GA rent research (updated November 26, 2026)</a> · <a href="https://www.yardimatrix.com/blog/atlanta-multifamily-market-report-january-2026/" target="_blank" rel="noopener">Yardi Matrix, Atlanta Multifamily Market Report, January 2026</a>. This post is general information, not legal or tax advice. Rents for your home will vary.</p>
+<div class="author">
+<img src="https://blog.georgiarentalgroup.com/img/sandra.jpg" alt="Sandra Watkins, Broker/Owner of Georgia Rental Group">
+<div>
+<b>Sandra Watkins, Broker/Owner</b>
+<p>Licensed in Georgia since 1998 and managing rentals for 19 years. Associate Broker with RE/MAX Town &amp; Country and a RamseyTrusted Pro.</p>
+</div>
+</div>
+<a class="back" href="https://blog.georgiarentalgroup.com/">← All posts</a>
+</article></main>
+<footer><div class="in">
+<div><b>Georgia Rental Group</b>Broker-owned property management by Sandra Watkins, Broker/Owner. Serving Cherokee, Cobb, Paulding, Bartow, Gordon, Pickens, Gilmer and North Fulton counties.<br><br>3760 Sixes Road, Suite 108<br>Canton, GA 30114<br><a href="tel:7703243680">770-324-3680</a><a href="mailto:georgiarentalgroup@gmail.com">georgiarentalgroup@gmail.com</a></div>
+<div><b>Owners</b><a href="https://georgiarentalgroup2.managebuilding.com/Resident/public/custom/22">Property management</a><a href="https://calendly.com/sandra-524/rental-property-consult-with-sandra">Book a free call</a><a href="https://georgiarentalgroup2.managebuilding.com/Resident/public/custom/23">Owner guides &amp; FAQ</a></div>
+<div><b>Renters</b><a href="https://u10777.rently.com/propertiesSearch2" target="_blank" rel="noopener">Available rentals</a><a href="https://georgiarentalgroup2.managebuilding.com/Resident/public/custom/21">Qualifications</a><a href="https://georgiarentalgroup2.managebuilding.com/Resident/public/documents">Documents</a></div>
+<div><b>Residents</b><a href="https://georgiarentalgroup2.managebuilding.com/Resident/portal/login">Pay rent</a><a href="https://georgiarentalgroup2.managebuilding.com/Resident/public/contact">Contact us</a></div>
+</div><div class="copy">© 2026 Georgia Rental Group · Equal Housing Opportunity<div style="margin-top:8px"><a href="/terms/" style="color:#cfe0ee">Terms of Use</a> &middot; <a href="/privacy/" style="color:#cfe0ee">Privacy Policy</a> &middot; <a href="/accessibility/" style="color:#cfe0ee">Accessibility</a> &middot; <a href="/fair-housing/" style="color:#cfe0ee">Fair Housing Statement</a></div></div></footer>
+</body></html>
